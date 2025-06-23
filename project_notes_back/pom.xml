@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Versión del modelo POM -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Proyecto padre: configura Maven con valores predeterminados de Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.3</version>
+		<relativePath/>
+		<!-- buscar en repositorios en lugar de un padre local -->
+	</parent>
+
+	<!-- Información general del proyecto -->
+	<groupId>com.astralz</groupId>	<!-- Identificador base del paquete -->
+	<artifactId>project_notes_back</artifactId>	<!-- Nombre del artefacto generado -->
+	<version>0.0.1-SNAPSHOT</version>	<!-- Versión del proyecto -->
+	<name>project_notes_back</name>	<!-- Nombre legible -->
+	<description>Proyecto de notas</description>
+
+	<!-- Propiedades generales -->
+	<properties>
+		<!-- Versión mínima requerida de Java -->
+		<java.version>21</java.version>
+	</properties>
+
+	<!-- Dependencias del proyecto -->
+	<dependencies>
+
+		<!-- Núcleo de Spring Boot (logging, configuración, etc.) 
+			LINK: https://start.spring.io
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- Spring Web: permite crear APIs RESTful y manejar peticiones HTTP
+			LINK: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Spring Data JPA: facilita el acceso a bases de datos con ORM
+			LINK: https://spring.io/guides/gs/accessing-data-jpa
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- API de persistencia de Jakarta (interfaz JPA)
+			LINK: https://mvnrepository.com/artifact/jakarta.persistence
+		-->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- Conector MySQL para conectarse a una base de datos MySQL 
+			NOTA:
+			La versión x.y.z de mysql-connector-j puede no estar disponible en los repositorios públicos de Maven.
+			Se recomienda usar una versión estable y ampliamente disponible, como la x.y.z.
+			Referencia: https://central.sonatype.com/artifact/com.mysql/mysql-connector-j
+		-->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>9.3.0</version>
+		</dependency>
+
+		<!-- Lombok: reduce el código repetitivo (getters/setters, etc.)
+			LINK: https://projectlombok.org/setup/maven
+		-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- Spring Boot DevTools: reinicio automático durante el desarrollo
+			LINK: https://docs.spring.io/spring-boot/reference/using/devtools.html
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Librerías para pruebas unitarias/integración con Spring
+			LINK: https://docs.spring.io/spring-boot/reference/testing/index.html
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<!-- Configuración de la compilación -->
+	<build>
+		<plugins>
+			<!-- Plugin para empaquetar la aplicación como un ejecutable .jar -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

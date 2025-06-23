@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estado del Servidor</title>
+    <style>
+      :root {
+        --primary: #10b981; /* verde esmeralda */
+        --text: #1f2937; /* gris oscuro */
+        --muted: #6b7280; /* gris medio */
+        --bg: #f9fafb; /* gris claro */
+        --font: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        background-color: var(--bg);
+        font-family: var(--font);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--text);
+        padding: 1.5rem;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      main h1 {
+        font-size: 4rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      main h1:hover {
+        transform: scale(1.1);
+      }
+
+      main h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      main p {
+        font-size: 1.1rem;
+        color: var(--text);
+        margin-bottom: 1rem;
+      }
+
+      .time {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+
+      footer {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: auto;
+        padding-bottom: 1rem;
+      }
+
+      footer a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        main h1 {
+          font-size: 3rem;
+        }
+
+        main h2 {
+          font-size: 1.5rem;
+        }
+
+        main p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>🟢</h1>
+      <h2>Servidor activo</h2>
+      <p>La API está operando con normalidad.</p>
+      <div class="time">Última actualización: <span id="time"></span></div>
+    </main>
+
+    <footer>
+      Hecho con ❤️ por <strong>Edain JCC (ejcc)</strong> ·
+      <a href="mailto:edain.cortez@outlook.com">edain.cortez@outlook.com</a> ·
+      <a href="https://github.com/Astralzz" target="_blank">GitHub</a> ·
+      <a href="https://astralzz.github.io" target="_blank">Portafolio</a>
+    </footer>
+
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const options = {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false,
+          timeZoneName: 'short',
+        };
+        document.getElementById('time').textContent =
+          now.toLocaleString('es-MX', options) + ` (${timeZone})`;
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
