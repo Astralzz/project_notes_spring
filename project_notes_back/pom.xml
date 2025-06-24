@@ -102,6 +102,36 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- JavaFaker: genera datos de prueba para las pruebas unitarias
+			LINK: https://www.baeldung.com/java-faker & https://github.com/DiUS/java-faker
+		-->
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+		<!-- 
+			Validaciones: API + implementación
+
+			Spring Boot Validation: valida los datos de las entidades
+			LINK: https://beanvalidation.org
+
+			Hibernate Validator: implementación de la API de validación
+			LINK: https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator & https://www.baeldung.com/java-validation
+		-->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>9.0.1.Final</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<!-- Configuración de la compilación -->
